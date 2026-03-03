@@ -10,6 +10,18 @@ public class Users {
     private String username;
     private String password;
 
+    public Users() {}
+
+    public Users(String username, String password){
+        this.username = username;
+        this.password = password;
+    }
+
+    public Users(int id, String username, String password){
+        this(username, password);
+        this.id = id;
+    }
+
     // Getters and setters
 
     public int getId(){
