@@ -9,6 +9,13 @@ form{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    &>label, &>div, &>input{
+        padding-bottom: 2vh;
+        padding-top: 2vh;
+    }
+    & button{
+        margin-top: 2vh;
+    }
 }
 
 .hidden{
