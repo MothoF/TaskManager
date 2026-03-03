@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Size;
 public class Users {
     @Id
     private int id;
+    @Size(max=50)
     private String username;
     @Size(min=8, max=8)
     private String password;

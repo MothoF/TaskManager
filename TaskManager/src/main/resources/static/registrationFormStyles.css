@@ -1,0 +1,20 @@
+main{
+    margin: auto;
+    width: 40vw;
+    margin-top: 20vh;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden{
+    display: none;
+}
+
+.radioBtns{
+    display: inline;
+}

@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <title>User Registration Form</title>
     <meta name="author" content="Tshepo Majoro"/>
+    <link th:href="@{/registrationFormStyles.css}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <main>
@@ -20,9 +21,20 @@
             <label>Password:</label>
             <input type="password" id="password" th:field="user.password" minlength="8" maxlength="8" required>
             <label>Gender:</label>
-            <input type="button" name="gender" value="Male" th:field="user.gender">
-            <input type="button" name="gender" value="Female" th:field="user.gender">
-            <input type="button" name="gender" value="Other">
+            <div class="radioBtns">
+                <label>
+                    <input type="radio" name="gender" value="Male" th:field="user.gender">
+                    Male
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="Female" th:field="user.gender">
+                    Female
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="Other">
+                    Other
+                </label>
+            </div>
             <label class="otherGender hidden" for="gender">Specify your gender here:</label>
             <input class="otherGender hidden" type="text" id="gender" th:field="user.gender" minlength="4" maxlength="20" required>
             <button type="submit">Register</button>
