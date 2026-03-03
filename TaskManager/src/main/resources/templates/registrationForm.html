@@ -8,6 +8,7 @@
     <title>User Registration Form</title>
     <meta name="author" content="Tshepo Majoro"/>
     <link th:href="@{/registrationFormStyles.css}" rel="stylesheet" type="text/css"/>
+    <script th:src="@{/js/registrationFormDOM.js}" defer type="text/javascript"></script>
 </head>
 <body>
     <main>
@@ -31,7 +32,7 @@
                     Female
                 </label>
                 <label>
-                    <input type="radio" name="gender" value="Other">
+                    <input type="radio" name="gender" id="otherGender" value="Other">
                     Other
                 </label>
             </div>
