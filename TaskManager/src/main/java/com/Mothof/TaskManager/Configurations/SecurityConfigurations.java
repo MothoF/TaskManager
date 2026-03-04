@@ -24,12 +24,12 @@ public class SecurityConfigurations {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/register").permitAll()
+                        .requestMatchers("/login","/", "/register", "/loginFormStyles.css",
+                        "/registrationFormStyles.css", "/js/registrationFormDOM.js").permitAll()
                         .anyRequest().authenticated()
                 )
                 .build();
     }
-
     /*
     DaoAuthenticationProvider object connects to the database and is used to verify
     user provided login credentials against database records.
