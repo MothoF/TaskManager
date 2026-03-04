@@ -8,14 +8,14 @@ import jakarta.validation.constraints.Size;
 public class Users {
     @Id
     private int id;
-    @Size(max=50)
+    @Size(max=50, message = "Username must be less than 50 characters")
     private String username;
-    @Size(min=8, max=8)
+    @Size(min=8, max=8, message = "Password must be 8 characters long")
     private String password;
     private String gender;
-    @Size(max=20)
+    @Size(max=20, message = "First name must be less than 20 characters")
     private String firstname;
-    @Size(max=20)
+    @Size(max=20, message = "Last name must be less than 20 characters")
     private String lastname;
 
     public Users() {}
