@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UsersController {
@@ -30,14 +30,13 @@ public class UsersController {
     }
 
     @PostMapping("/register")
-    @ResponseBody
-    public String register(@Valid Users user, BindingResult bindingResult){
+    public String register(@Valid @ModelAttribute("user") Users user, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             System.out.println("Errors found");
             return "/register";
         }
         usersService.RegisterUser(user);
-        return "User has been successfully registered";
+        return "redirect:/login";
     }
 
 }
