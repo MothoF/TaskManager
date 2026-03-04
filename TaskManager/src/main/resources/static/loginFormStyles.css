@@ -4,6 +4,11 @@ main{
     margin: auto;
     width: 40vw;
     margin-top: 20vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 form{

@@ -12,23 +12,23 @@
 </head>
 <body>
     <main>
-        <form method="post" th:action="/register">
+        <form method="post" th:action="@{/register}">
             <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" th:field="user.firstname" maxlength="20" required>
+            <input type="text" id="firstName" th:field="${user.firstname}" maxlength="20" required>
             <label>Last Name:</label>
-            <input type="text" id="lastName" th:field="user.lastname" maxlength="20" required>
+            <input type="text" id="lastName" th:field="${user.lastname}" maxlength="20" required>
             <label>Email</label>
-            <input type="email" id="email" th:field="user.username" required>
+            <input type="email" id="email" th:field="${user.username}" required>
             <label>Password:</label>
-            <input type="password" id="password" th:field="user.password" minlength="8" maxlength="8" required>
+            <input type="password" id="password" th:field="${user.password}" minlength="8" maxlength="8" required>
             <label>Gender:</label>
             <div class="radioBtns">
                 <label>
-                    <input type="radio" name="gender" id="maleGender" value="Male" th:field="user.gender">
+                    <input type="radio" name="gender" id="maleGender" value="Male" th:field="${user.gender}">
                     Male
                 </label>
                 <label>
-                    <input type="radio" name="gender" id="femaleGender" value="Female" th:field="user.gender">
+                    <input type="radio" name="gender" id="femaleGender" value="Female" th:field="${user.gender}">
                     Female
                 </label>
                 <label>
@@ -37,7 +37,7 @@
                 </label>
             </div>
             <label class="otherGender hidden" for="gender">Specify your gender here:</label>
-            <input class="otherGender hidden" type="text" id="gender" th:field="user.gender" minlength="4" maxlength="20" required>
+            <input class="otherGender hidden" type="text" id="gender" th:field="${user.gender}" minlength="4" maxlength="20" required>
             <button type="submit">Register</button>
         </form>
     </main>
