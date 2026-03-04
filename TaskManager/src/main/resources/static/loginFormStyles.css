@@ -15,7 +15,7 @@ form{
     align-items: center;
 
     /*Added spacing between the form inner elements*/
-    &>label, &>div, &>input{
+    &>label, &>input{
         padding-bottom: 1vh;
         padding-top: 1vh;
     }
@@ -37,13 +37,4 @@ form{
         color: white;
         border-radius: 5px;
     }
-}
-
-.hidden{
-    display: none;
-}
-
-/*Display the radio buttons all in a single single*/
-.radioBtns{
-    display: inline;
 }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    <meta name="author" content="Tshepo Majoro">
+    <link th:href="@{/loginFormStyles.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <main>
+        <form method="post" th:action="/login">
+            <label for="username">Username:</label>
+            <input type="text" id="username" maxlength="50" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" minlength="8" maxlength="8" required>
+            <button type="submit">Login</button>
+        </form>
+    </main>
+</body>
+</html>
