@@ -38,7 +38,7 @@ form{
         margin-top: 1vh;
         width: 20.6vw;
         height: 4vh;
-        background-color: black;
+        background-color: #2E8C7E;
         color: white;
         border-radius: 5px;
 
@@ -46,4 +46,8 @@ form{
             cursor: pointer;
         }
     }
+}
+
+a{
+    color: #2E8C7E;
 }
