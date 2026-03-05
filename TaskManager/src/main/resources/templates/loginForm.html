@@ -15,7 +15,7 @@
             <input type="text" id="username" maxlength="50" th:field="${user.username}" placeholder="Enter your username"
                    required>
             <label for="password">Password:</label>
-            <input type="password" id="password" minlength="8" maxlength="8" placeholder="Enter your password"
+            <input type="password" id="password" minlength="8" maxlength="20" placeholder="Enter your password"
                    th:field="${user.password}" required>
             <button type="submit">Login</button>
         </form>
