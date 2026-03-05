@@ -44,7 +44,7 @@
             </div>
             <label class="otherGender hidden" for="gender">Specify your gender here:</label>
             <input class="otherGender hidden" type="text" id="gender" placeholder="Your gender identity"
-                   th:field="${user.gender}" minlength="4" maxlength="20" required>
+                   th:field="${user.gender}" minlength="4" maxlength="20">
             <button type="submit">Register</button>
         </form>
         <p>Already have an account? <a th:href="@{/login}">Sign in</a></p>
