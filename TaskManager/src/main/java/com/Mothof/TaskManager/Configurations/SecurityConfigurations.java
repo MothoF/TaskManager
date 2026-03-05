@@ -13,8 +13,8 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfigurations {
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+//    @Autowired
+//    private UserDetailsService userDetailsService;
 
     /*
     Set up the application such that client requests for the login and register paths are exempt
@@ -39,7 +39,7 @@ public class SecurityConfigurations {
     user provided login credentials against database records.
     */
     @Bean
-    public AuthenticationProvider authProvider() {
+    public AuthenticationProvider authProvider(UserDetailsService userDetailsService) {
         DaoAuthenticationProvider daoAuthProvider = new DaoAuthenticationProvider(userDetailsService);
         daoAuthProvider.setPasswordEncoder(new BCryptPasswordEncoder(12));
 //        daoAuthProvider.setUserDetailsService(userDetailsService);
