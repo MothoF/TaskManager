@@ -11,6 +11,8 @@ otherGenderButton.addEventListener("change", function(){
         for (let i = 0; i < hiddenOtherGenderRelatedFormElements.length; i++) {
             hiddenOtherGenderRelatedFormElements[i].classList.remove("hidden");
         }
+        const otherGenderInputField = document.querySelector("input[type='text'].otherGender");
+        otherGenderInputField.required = true;
     }
 });
 

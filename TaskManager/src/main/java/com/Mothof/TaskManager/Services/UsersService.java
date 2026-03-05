@@ -14,13 +14,11 @@ public class UsersService {
     public void RegisterUser(Users user){
         HashPassword(user);
         usersRepo.save(user);
-        System.out.println("User registered successfully");
     }
 
     private void HashPassword(Users user){
         String usersRawPassword = user.getPassword();
         String usersHashedPassword = new BCryptPasswordEncoder(12).encode(usersRawPassword);
         user.setPassword(usersHashedPassword);
-        System.out.println("Password hashed successfully");
     }
 }
