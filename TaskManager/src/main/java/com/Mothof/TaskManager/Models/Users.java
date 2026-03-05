@@ -1,16 +1,19 @@
 package com.Mothof.TaskManager.Models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Size;
 
 @Entity
 public class Users {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Size(max=50, message = "Username must be less than 50 characters")
     private String username;
-    @Size(min=8, max=20, message = "Password must be 8 characters long at least and 20 characters long at most")
+    @Size(min=8, message = "Password must be 8 characters long at least and 20 characters long at most")
     private String password;
     private String gender;
     @Size(max=20, message = "First name must be less than 20 characters")

@@ -21,5 +21,6 @@ public class UsersService {
         String usersRawPassword = user.getPassword();
         String usersHashedPassword = new BCryptPasswordEncoder(12).encode(usersRawPassword);
         user.setPassword(usersHashedPassword);
+        System.out.println("Password hashed successfully");
     }
 }
