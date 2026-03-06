@@ -10,6 +10,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 @Service
 public class UsersService {
@@ -29,13 +31,24 @@ public class UsersService {
         user.setPassword(usersHashedPassword);
     }
 
+    public boolean userPasswordMatchesCriteria(Users user){
+        String password = user.getPassword();
+
+        String passwordRegex = "\s{0}[0-9]+[A-Z]+[^a-zA-Z0-9]+";
+        Pattern pattern = Pattern.compile(passwordRegex);
+        Matcher matcher = pattern.matcher(password);
+        if (matcher.find() && password.length() >= 8){
+            return true;
+        }
+        return false;
+    }
+
+
     public boolean userIsAuthenticated(Users user){
         Authentication authenticationObject = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
         if (Objects.requireNonNull(authenticationProvider.authenticate(authenticationObject)).isAuthenticated()){
-            System.out.println("User authentication completed");
             return true;
         }
-        System.out.println("Could not authenticate user");
         return false;
     }
 }

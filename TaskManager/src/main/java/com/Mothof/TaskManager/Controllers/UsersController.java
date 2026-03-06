@@ -36,8 +36,11 @@ public class UsersController {
             System.out.println("Errors found");
             return "/register";
         }
-        usersService.RegisterUser(user);
-        return "redirect:/login";
+        if (usersService.userPasswordMatchesCriteria(user)){
+            usersService.RegisterUser(user);
+            return "redirect:/login";
+        }
+        return "/register";
     }
 
     @PostMapping({"/","/login"})
