@@ -33,11 +33,11 @@ public class UsersService {
 
     public boolean userPasswordMatchesCriteria(Users user){
         String password = user.getPassword();
-
-        String passwordRegex = "\s{0}[0-9]+[A-Z]+[^a-zA-Z0-9]+";
+        String passwordRegex = "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}";
         Pattern pattern = Pattern.compile(passwordRegex);
         Matcher matcher = pattern.matcher(password);
-        if (matcher.find() && password.length() >= 8){
+
+        if (matcher.matches() && password.length() >= 8){
             return true;
         }
         return false;

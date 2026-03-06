@@ -34,13 +34,13 @@ public class UsersController {
     public String register(@Valid @ModelAttribute("user") Users user, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             System.out.println("Errors found");
-            return "/register";
+            return "registrationForm";
         }
         if (usersService.userPasswordMatchesCriteria(user)){
             usersService.RegisterUser(user);
             return "redirect:/login";
         }
-        return "/register";
+        return "registrationForm";
     }
 
     @PostMapping({"/","/login"})
