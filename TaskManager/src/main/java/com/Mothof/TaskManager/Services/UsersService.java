@@ -51,4 +51,13 @@ public class UsersService {
         }
         return false;
     }
+
+    public boolean usernameIsRecognisedInDb(Users user) {
+        String userProvidedUsername = user.getUsername();
+        Users databaseUserWithSameUsername = usersRepo.findByUsername(userProvidedUsername);
+        if (databaseUserWithSameUsername == null){
+            return false;
+        }
+        return databaseUserWithSameUsername.equals(user);
+    }
 }

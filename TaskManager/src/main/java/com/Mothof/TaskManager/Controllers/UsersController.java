@@ -45,8 +45,8 @@ public class UsersController {
 
     @PostMapping({"/","/login"})
     @ResponseBody
-    public String login(@ModelAttribute("user") Users user, BindingResult bindingResult){
-        if(bindingResult.hasErrors() || !usersService.userIsAuthenticated(user)){
+    public String login(@ModelAttribute("user") Users user){
+        if(!usersService.userIsAuthenticated(user)){
             System.out.println("Errors found");
             return "/login";
         }
@@ -56,6 +56,14 @@ public class UsersController {
     @GetMapping("/changePassword")
     public String changeAccountPassword(Model model){
         model.addAttribute("user", new Users());
+        return "changePasswordForm";
+    }
+
+    @PostMapping("changePassword")
+    public String changeAccountPassword(@ModelAttribute("user") Users user){
+        if (usersService.usernameIsRecognisedInDb(user)){
+            return "redirect:/login";
+        }
         return "changePasswordForm";
     }
 
