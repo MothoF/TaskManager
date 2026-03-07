@@ -62,6 +62,7 @@ public class UsersController {
     @PostMapping("changePassword")
     public String changeAccountPassword(@ModelAttribute("user") Users user){
         if (usersService.usernameIsRecognisedInDb(user)){
+            usersService.changeAccountPassword(user);
             return "redirect:/login";
         }
         return "changePasswordForm";

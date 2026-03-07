@@ -95,6 +95,6 @@ public class Users {
             return false;
         }
         Users userObject = (Users) o;
-        return username.equals(userObject.username);
+        return username.equals(userObject.getUsername());
     }
 }
