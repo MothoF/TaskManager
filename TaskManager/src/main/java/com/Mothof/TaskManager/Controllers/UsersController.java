@@ -53,4 +53,10 @@ public class UsersController {
         return "You have successfully logged in you doofus!!";
     }
 
+    @GetMapping("/changePassword")
+    public String changeAccountPassword(Model model){
+        model.addAttribute("user", new Users());
+        return "changePasswordForm";
+    }
+
 }
