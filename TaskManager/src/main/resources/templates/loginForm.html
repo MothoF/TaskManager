@@ -19,8 +19,7 @@
                    th:field="${user.password}" required>
             <button type="submit">Login</button>
         </form>
-        <p>Don't have an account with us? <a th:href="@{/register}">Register here</a></p>
-        <p>Forgot your password? <a th:href="@{/changePassword}">Create a new one</a></p>
+        <p><a th:href="@{/register}">Register a new account</a> || <a th:href="@{/changePassword}">Create a new password</a></p>
     </main>
 </body>
 </html>
