@@ -88,13 +88,4 @@ public class Users {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null){
-            return false;
-        }
-        Users userObject = (Users) o;
-        return username.equals(userObject.getUsername());
-    }
 }

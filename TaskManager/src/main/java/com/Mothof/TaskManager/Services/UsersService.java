@@ -75,7 +75,7 @@ public class UsersService {
         if (databaseUserWithSameUsername == null){
             return false;
         }
-        return databaseUserWithSameUsername.equals(user); //This could just return true, no need to call the equals() method
+        return true;
     }
 
     public void changeAccountPassword(Users user){
