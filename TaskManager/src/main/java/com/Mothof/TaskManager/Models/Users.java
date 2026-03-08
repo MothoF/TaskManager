@@ -13,18 +13,13 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Size(max=50, message = "Username must be less than 50 characters")
-    @NotBlank
     private String username;
     @Size(min=8, message = "Password must be 8 characters long at least and 20 characters long at most")
-    @NotBlank
     private String password;
-    @NotBlank
     private String gender;
     @Size(max=20, message = "First name must be less than 20 characters")
-    @NotBlank
     private String firstname;
     @Size(max=20, message = "Last name must be less than 20 characters")
-    @NotBlank
     private String lastname;
 
     public Users() {}

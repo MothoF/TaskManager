@@ -37,7 +37,7 @@ public class UsersController {
             return "registrationForm";
         }
         if (usersService.userPasswordMatchesCriteria(user)){
-            usersService.RegisterUser(user);
+            usersService.registerUser(user);
             return "redirect:/login";
         }
         return "registrationForm";
