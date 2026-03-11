@@ -3,6 +3,7 @@ package com.Mothof.TaskManager.Services;
 import com.Mothof.TaskManager.Models.Users;
 import com.Mothof.TaskManager.Repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -17,8 +18,10 @@ import java.util.regex.Matcher;
 public class UsersService {
     @Autowired
     private UsersRepository usersRepo;
+//    @Autowired
+//    private AuthenticationProvider authenticationProvider;
     @Autowired
-    private AuthenticationProvider authenticationProvider;
+    private AuthenticationManager authenticationManager;
 
     public void registerUser(Users user){
         hashRegistrationPassword(user);
@@ -93,8 +96,14 @@ public class UsersService {
     quest to authenticate the user trying to login.
      */
     public boolean userIsAuthenticated(Users user){
-        Authentication authenticationObject = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
-        if (Objects.requireNonNull(authenticationProvider.authenticate(authenticationObject)).isAuthenticated()){
+//        Authentication authenticationObject = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+//        if (Objects.requireNonNull(authenticationProvider.authenticate(authenticationObject)).isAuthenticated()){
+//            return true;
+//        }
+        Authentication authenticationObject = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+
+        if (authenticationObject.isAuthenticated()){
             return true;
         }
         return false;
