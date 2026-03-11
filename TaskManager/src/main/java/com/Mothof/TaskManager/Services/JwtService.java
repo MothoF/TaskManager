@@ -2,6 +2,7 @@ package com.Mothof.TaskManager.Services;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.KeyGenerator;
@@ -56,5 +57,13 @@ public class JwtService {
         byte[] encodedKey = Base64.getDecoder().decode(secretKey);
         SecretKey key = Keys.hmacShaKeyFor(encodedKey);
         return key;
+    }
+
+    public String extractUsernameFromToken(String jwtToken) {
+        return null;
+    }
+
+    public boolean validateToken(UserDetails userDetails, String jwtToken) {
+        return true;
     }
 }
