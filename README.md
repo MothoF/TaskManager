@@ -7,40 +7,48 @@ This project is being built as part of my journey to strengthen my backend devel
 ## Tech Stack
 
 Frontend
-- HTML5
-- CSS3
-- JavaScript
+
+* HTML5
+* CSS3
+* JavaScript
 
 Backend
-- Java
-- Spring Boot
-- Spring MVC
-- Spring Security
-- Spring Data JPA
+
+* Java
+* Spring Boot
+* Spring MVC
+* Spring Security
+* Spring Data JPA
+
+Database
+
+* PostgreSQL
 
 Security
-- BCrypt password hashing
+
+* BCrypt password hashing
+* JWT (JSON Web Token) authentication
 
 ## Current Features
 
-- User registration
-- User login
-- Password change functionality
-- Secure password storage using BCrypt
+* User registration
+* User login
+* Password change functionality
+* Secure password storage using BCrypt
+* JWT-based authentication for secure, stateless user sessions
 
 ## Features In Development
 
-- JWT-based authentication
-- Task creation
-- Task editing
-- Task deletion
-- User task dashboard
+* Task creation
+* Task editing
+* Task deletion
+* User task dashboard
 
 ## Security
 
 User passwords are securely hashed using the BCrypt algorithm before being stored in the database.
 
-Future versions will incorporate JWT authentication to support stateless API security.
+Authentication is handled using JSON Web Tokens (JWT), enabling stateless authentication and secure communication between the client and server.
 
 ## Project Status
 
