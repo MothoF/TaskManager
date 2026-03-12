@@ -1,22 +1,23 @@
 package com.Mothof.TaskManager.Controllers;
 
 import com.Mothof.TaskManager.Models.Users;
+import com.Mothof.TaskManager.Repository.UsersRepository;
 import com.Mothof.TaskManager.Services.UsersService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
 
 @Controller
 public class UsersController {
     @Autowired
     private UsersService usersService;
-
+    @Autowired
+    private UsersRepository usersRepo;
 
     @GetMapping({"/", "/login"})
     public String login(Model model) {
@@ -44,13 +45,12 @@ public class UsersController {
     }
 
     @PostMapping({"/","/login"})
-    @ResponseBody
     public String login(@ModelAttribute("user") Users user){
         if(!usersService.userIsAuthenticated(user)){
             System.out.println("Errors found");
             return "/login";
         }
-        return "You have successfully logged in you doofus!!";
+        return "redirect:/home";
     }
 
     @GetMapping("/changePassword")
@@ -59,13 +59,21 @@ public class UsersController {
         return "changePasswordForm";
     }
 
-    @PostMapping("changePassword")
+    @PostMapping("/changePassword")
     public String changeAccountPassword(@ModelAttribute("user") Users user){
         if (usersService.usernameIsRecognisedInDb(user)){
             usersService.changeAccountPassword(user);
             return "redirect:/login";
         }
         return "changePasswordForm";
+    }
+
+    @GetMapping("/home")
+    @ResponseBody
+    public String homePage(Principal principalUser){
+        String username = principalUser.getName();
+        Users user = usersRepo.findByUsername(username);
+        return "Welcome to the Home Page "+user.getFirstname()+" "+user.getLastname();
     }
 
 }

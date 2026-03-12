@@ -15,10 +15,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-import static org.springframework.core.PropagationContextElement.Key;
-
 @Service
 public class JwtService {
+
     private String secretKey;
 
     public JwtService() {
@@ -27,7 +26,7 @@ public class JwtService {
             SecretKey key = keyGenerator.generateKey();
             this.secretKey = Base64.getEncoder().encodeToString(key.getEncoded());
         } catch (NoSuchAlgorithmException e){
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
@@ -62,8 +61,7 @@ public class JwtService {
      */
     private SecretKey getSecretKey() {
         byte[] decodedKey = Base64.getDecoder().decode(secretKey);
-        SecretKey key = Keys.hmacShaKeyFor(decodedKey);
-        return key;
+        return Keys.hmacShaKeyFor(decodedKey);
     }
 
     /*
