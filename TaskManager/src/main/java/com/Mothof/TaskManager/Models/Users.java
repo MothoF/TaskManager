@@ -1,55 +1,56 @@
 package com.Mothof.TaskManager.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
 @Entity
 public class Users {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
     @Size(max=50, message = "Username must be less than 50 characters")
-    private String username;
+    @Column(name = "username")
+    private String userName;
     @Size(min=8, message = "Password must be 8 characters long at least and 20 characters long at most")
+    @Column(name = "password")
     private String password;
+    @Column(name = "gender")
     private String gender;
     @Size(max=20, message = "First name must be less than 20 characters")
-    private String firstname;
+    @Column(name = "firstname")
+    private String firstName;
     @Size(max=20, message = "Last name must be less than 20 characters")
-    private String lastname;
+    @Column(name = "lastname")
+    private String lastName;
+    @Size(min = 10, max = 10)
+    @Column(name = "cellphone")
+    private String cellPhone;
 
     public Users() {}
 
     public Users(String username, String password){
-        this.username = username;
+        this.userName = username;
         this.password = password;
     }
 
-    public Users(int id, String username, String password){
+    public Users(String username, String password, String cellphone){
         this(username, password);
-        this.id = id;
+        this.cellPhone = cellphone;
+    }
+
+    public Users(String username, String password, String gender, String firstname, String lastname, String cellphone){
+        this(username, password, cellphone);
+        this.gender = gender;
+        this.firstName = firstname;
+        this.lastName = lastname;
     }
 
     // Getters and setters
 
-    public int getId(){
-        return id;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String username) {
+        this.userName = username;
     }
 
     public String getPassword() {
@@ -68,19 +69,27 @@ public class Users {
         this.gender = gender;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstname) {
+        this.firstName = firstname;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastname) {
+        this.lastName = lastname;
+    }
+
+    public void setCellPhone(String cellphone) {
+        this.cellPhone = cellphone;
+    }
+
+    public String getCellPhone() {
+        return cellPhone;
     }
 }

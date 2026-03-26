@@ -61,7 +61,7 @@ public class UsersService {
     Parameter Users user -> is a Users object with mostly null fields save for username and password.
      */
     public Users getUserRecordStoredInTheDatabase(Users user){
-        return usersRepo.findByUsername(user.getUsername());
+        return usersRepo.findByUserName(user.getUserName());
     }
 
     /*
@@ -101,7 +101,7 @@ public class UsersService {
 //            return true;
 //        }
         Authentication authenticationObject = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+                new UsernamePasswordAuthenticationToken(user.getUserName(), user.getPassword()));
 
         if (authenticationObject.isAuthenticated()){
             return true;

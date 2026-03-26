@@ -12,7 +12,7 @@
         <p>Sign in to continue</p>
         <form method="post" th:action="@{/login}">
             <label for="username">Username:</label>
-            <input type="text" id="username" maxlength="50" th:field="${user.username}" placeholder="Enter your username"
+            <input type="text" id="username" maxlength="50" th:field="${user.userName}" placeholder="Enter your username"
                    required>
             <label for="password">Password:</label>
             <input type="password" id="password" minlength="8" maxlength="20" placeholder="Enter your password"

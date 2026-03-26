@@ -3,7 +3,7 @@ of the lateral page space, and then set the distance from the top of the page to
 main{
     margin: auto;
     width: 40vw;
-    margin-top: 10vh;
+    margin-top: 4vh;
 
     display: flex;
     flex-direction: column;

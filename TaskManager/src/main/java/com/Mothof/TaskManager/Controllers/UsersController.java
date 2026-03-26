@@ -72,8 +72,8 @@ public class UsersController {
     @ResponseBody
     public String homePage(Principal principalUser){
         String username = principalUser.getName();
-        Users user = usersRepo.findByUsername(username);
-        return "Welcome to the Home Page "+user.getFirstname()+" "+user.getLastname();
+        Users user = usersRepo.findByUserName(username);
+        return "Welcome to the Home Page "+user.getFirstName()+" "+user.getLastName();
     }
 
 }
