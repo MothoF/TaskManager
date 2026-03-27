@@ -51,4 +51,8 @@ public class Tasks {
     public void setConceptName(String conceptName) {
         this.conceptName = conceptName;
     }
+
+    public int getId() {
+        return id;
+    }
 }
