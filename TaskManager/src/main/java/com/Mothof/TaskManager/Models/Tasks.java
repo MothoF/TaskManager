@@ -13,43 +13,21 @@ public class Tasks {
     @Size(max=20, message = "Module name must be less than 20 characters")
     @Column(name = "modulename")
     private String moduleName;
-    @Column(name = "topicname")
-    private String topicName;
-    @Column(name = "conceptname")
-    private String conceptName;
     @OneToMany(mappedBy = "tasks")
     private Set<UsersTasks> allUsersWithThisTask;
 
     public Tasks(){}
 
-    public Tasks(String moduleName, String topicName, String conceptName){
+    public Tasks(String moduleName){
         this.moduleName = moduleName;
-        this.topicName = topicName;
-        this.conceptName = conceptName;
     }
 
     public String getModuleName() {
         return moduleName;
     }
 
-    public String getTopicName() {
-        return topicName;
-    }
-
-    public String getConceptName() {
-        return conceptName;
-    }
-
     public void setModuleName(String moduleName) {
         this.moduleName = moduleName;
-    }
-
-    public void setTopicName(String topicName) {
-        this.topicName = topicName;
-    }
-
-    public void setConceptName(String conceptName) {
-        this.conceptName = conceptName;
     }
 
     public int getId() {
