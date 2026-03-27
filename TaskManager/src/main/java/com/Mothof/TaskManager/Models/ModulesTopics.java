@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 public class ModulesTopics {
     @EmbeddedId
     private ModulesTopicsId id;
+
     @ManyToOne
     @MapsId("moduleName")
     @JoinColumn(name = "modulename")
@@ -15,4 +16,27 @@ public class ModulesTopics {
     @MapsId("topicName")
     @JoinColumn(name = "topicname")
     private Topics topics;
+
+    public ModulesTopics(){}
+
+    public ModulesTopics(Modules modules, Topics topics) {
+        this.modules = modules;
+        this.topics = topics;
+    }
+
+    public Modules getModules() {
+        return modules;
+    }
+
+    public Topics getTopics() {
+        return topics;
+    }
+
+    public void setModules(Modules modules) {
+        this.modules = modules;
+    }
+
+    public void setTopics(Topics topics) {
+        this.topics = topics;
+    }
 }

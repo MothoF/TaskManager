@@ -3,6 +3,8 @@ package com.Mothof.TaskManager.Models;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
+import java.util.Set;
+
 @Entity
 public class Users {
     @Id
@@ -23,6 +25,8 @@ public class Users {
     @Size(min = 10, max = 10)
     @Column(name = "cellphone")
     private String cellPhone;
+    @OneToMany(mappedBy = "users")
+    private Set<UsersTasks> allTasksByThisUser;
 
     public Users() {}
 
