@@ -52,6 +52,9 @@ body{
         width: 60vw;
 
         & #addTaskBtn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 10px;
             background-color: #2E8C7E;
             color: white;
