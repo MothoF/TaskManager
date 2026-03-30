@@ -10,15 +10,18 @@
 <body>
     <main>
         <section class="pageHead">
-            <div class="logo&Btn">
-                <h2><img th:src="@{/images/logo.png}" id="logo" alt="Logo"/> Tasks</h2>
-                <button th:href="@{/add_task}" id="addTaskBtn">Add New Task</button>
+            <div class="logoAndButton">
+                <div class="logo">
+                    <img th:src="@{/images/logo.png}" id="logo" alt="Logo"/>
+                    <h2> Tasks</h2>
+                </div>
+                <button th:href="@{/add_task}" id="addTaskBtn">+ New Task</button>
             </div>
             <div class="menu">
-                <a th:href="@{/home}">All</a>
+                <a th:href="@{/home}" id="firstMenuItem">All</a>
                 <a th:href="@{/home}">To Do</a>
                 <a th:href="@{/home}">In Progress</a>
-                <a th:href="@{/home}">Done</a>
+                <a th:href="@{/home}" id="lastMenuItem">Done</a>
             </div>
         </section>
         <section layout:fragment="contents"></section>
