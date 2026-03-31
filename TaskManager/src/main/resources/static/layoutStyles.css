@@ -29,6 +29,7 @@ body{
             align-items: center;
             margin-top: 0.5vh;
             margin-bottom: 0.5vh;
+            margin-right: 0.25vw;
 
             &:hover{
                 background-color: #2E8C7E;

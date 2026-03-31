@@ -73,7 +73,7 @@ public class UsersController {
     public String homePage(Principal principalUser){
         String username = principalUser.getName();
         Users user = usersRepo.findByUserName(username);
-        return "Welcome to the Home Page "+user.getFirstName()+" "+user.getLastName();
+        return "home";
     }
 
 }

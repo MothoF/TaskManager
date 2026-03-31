@@ -12,7 +12,7 @@ public class Concepts {
     private Topics topic;
 
     @MapsId("name")
-    @JoinColumn(name = "name")
+    @JoinColumn()
     private String name;
 
     public Concepts(){}

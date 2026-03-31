@@ -25,7 +25,7 @@ public class Users {
     @Size(min = 10, max = 10)
     @Column(name = "cellphone")
     private String cellPhone;
-    @OneToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "user")
     private Set<UsersTasks> allTasksByThisUser;
 
     public Users() {}
