@@ -33,6 +33,7 @@ body{
             &:hover{
                 background-color: #2E8C7E;
                 border-radius: 10px;
+                color: white;
             }
 
             &#lastMenuItem{

@@ -19,10 +19,10 @@
                 <button th:href="@{/add_task}" id="addTaskBtn">+ New Task</button>
             </div>
             <div class="menu">
-                <a th:href="@{/home}" id="firstMenuItem">All</a>
-                <a th:href="@{/home}">To Do</a>
-                <a th:href="@{/home}">In Progress</a>
-                <a th:href="@{/home}" id="lastMenuItem">Done</a>
+                <a href="#" id="firstMenuItem" class="menuItem active">All</a>
+                <a href="#" class="menuItem">To Do</a>
+                <a href="#" class="menuItem">In Progress</a>
+                <a href="#" id="lastMenuItem" class="menuItem">Done</a>
             </div>
         </section>
         <section layout:fragment="contents"></section>
