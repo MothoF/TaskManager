@@ -15,4 +15,18 @@ public class ConceptsId implements Serializable {
         this.name = name;
         this.topicName = topicName;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ConceptsId)) return false;
+        ConceptsId that = (ConceptsId) o;
+        return name.equals(that.name) &&
+                topicName.equals(that.topicName);
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(name, topicName);
+    }
 }

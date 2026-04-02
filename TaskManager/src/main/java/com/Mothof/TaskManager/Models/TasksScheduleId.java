@@ -15,4 +15,18 @@ public class TasksScheduleId implements Serializable {
         this.taskId = taskId;
         this.scheduleId = scheduleId;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TasksScheduleId)) return false;
+        TasksScheduleId that = (TasksScheduleId) o;
+        return taskId == that.taskId &&
+                scheduleId == that.scheduleId;
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(scheduleId, taskId);
+    }
 }

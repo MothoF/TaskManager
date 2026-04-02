@@ -38,6 +38,7 @@ public class TasksSchedule {
         this(date, time);
         this.task = task;
         this.schedule = schedule;
+        this.id = new TasksScheduleId(task.getTaskId(), schedule.getScheduleId());
     }
 
     public Tasks getTask() {

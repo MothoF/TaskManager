@@ -9,11 +9,11 @@ public class UsersTasks {
     private UsersTasksId id;
 
     @ManyToOne
-    @MapsId("usersEmail")
-    @JoinColumn(name = "useremail")
+    @MapsId("userName")
+    @JoinColumn(name = "username")
     private Users user;
     @ManyToOne
-    @MapsId("tasksId")
+    @MapsId("taskId")
     @JoinColumn(name = "taskid")
     private Tasks tasks;
 
@@ -37,6 +37,7 @@ public class UsersTasks {
         this(progress, priority, description);
         this.user = user;
         this.tasks = tasks;
+        this.id = new UsersTasksId(user.getUserName(), tasks.getTaskId());
     }
 
     public String getProgress() {

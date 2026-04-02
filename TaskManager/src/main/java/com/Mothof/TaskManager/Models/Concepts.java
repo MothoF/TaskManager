@@ -11,8 +11,7 @@ public class Concepts {
     @JoinColumn(name = "topicname")
     private Topics topic;
 
-    @MapsId("name")
-    @JoinColumn()
+    @Column(name = "name", insertable = false, updatable = false)
     private String name;
 
     public Concepts(){}
@@ -20,6 +19,7 @@ public class Concepts {
     public Concepts(String name, Topics topic){
         this.name = name;
         this.topic = topic;
+        this.id = new ConceptsId(name, topic.getTopicName());
     }
 
     public String getName() {

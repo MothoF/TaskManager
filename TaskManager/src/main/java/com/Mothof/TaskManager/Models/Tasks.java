@@ -9,7 +9,8 @@ import java.util.Set;
 public class Tasks {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "id")
+    private int taskId;
     @Size(max=20, message = "Module name must be less than 20 characters")
     @Column(name = "modulename")
     private String moduleName;
@@ -30,7 +31,7 @@ public class Tasks {
         this.moduleName = moduleName;
     }
 
-    public int getId() {
-        return id;
+    public int getTaskId() {
+        return taskId;
     }
 }

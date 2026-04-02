@@ -15,4 +15,18 @@ public class ModulesTopicsId implements Serializable {
         this.moduleName = moduleName;
         this.topicName = topicName;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ModulesTopicsId)) return false;
+        ModulesTopicsId that = (ModulesTopicsId) o;
+        return moduleName.equals(that.moduleName) &&
+                topicName.equals(that.topicName);
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(moduleName, topicName);
+    }
 }

@@ -1,20 +1,18 @@
 package com.Mothof.TaskManager.Models;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 @Entity
 public class Schedule {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "id")
+    private int scheduleId;
 
     public Schedule(){}
 
-    public int getId() {
-        return id;
+    public int getScheduleId() {
+        return scheduleId;
     }
 }

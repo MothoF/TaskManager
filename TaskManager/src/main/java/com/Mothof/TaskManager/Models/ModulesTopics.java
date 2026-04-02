@@ -22,6 +22,7 @@ public class ModulesTopics {
     public ModulesTopics(Modules modules, Topics topics) {
         this.modules = modules;
         this.topics = topics;
+        this.id = new ModulesTopicsId(modules.getModuleName(), topics.getTopicName());
     }
 
     public Modules getModules() {

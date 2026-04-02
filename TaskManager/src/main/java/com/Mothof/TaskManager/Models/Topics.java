@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Size;
+import jakarta.persistence.Column;
 
 import java.util.Set;
 
@@ -11,21 +12,22 @@ import java.util.Set;
 public class Topics {
     @Id
     @Size(max=20, message = "Topic name must be less than 20 characters")
-    private String name;
+    @Column(name="name")
+    private String topicName;
     @OneToMany(mappedBy = "topics")
     private Set<ModulesTopics> allModulesWithThisTopic;
 
     public Topics(){}
 
     public Topics(String name){
-        this.name = name;
+        this.topicName = name;
     }
 
-    public String getName(){
-        return name;
+    public String getTopicName(){
+        return topicName;
     }
 
-    public void setName(String name){
-        this.name = name;
+    public void setTopicName(String name){
+        this.topicName = name;
     }
 }
