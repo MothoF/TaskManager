@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -104,6 +105,7 @@ public class UsersService {
                 new UsernamePasswordAuthenticationToken(user.getUserName(), user.getPassword()));
 
         if (authenticationObject.isAuthenticated()){
+            SecurityContextHolder.getContext().setAuthentication(authenticationObject);
             return true;
         }
         return false;

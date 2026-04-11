@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
 >
 <head>
     <meta charset="UTF-8">
@@ -10,13 +10,13 @@
 </head>
 <body>
     <main>
-        <section class="pageHead">
+        <section class="pageHead" th:fragment="header">
             <div class="logoAndButton">
                 <div class="logo">
                     <img th:src="@{/images/logo.png}" id="logo" alt="Logo"/>
                     <h2> Tasks</h2>
                 </div>
-                <button th:href="@{/add_task}" id="addTaskBtn">+ New Task</button>
+                <a th:href="@{/add_task}" id="addTaskBtn">+ New Task</a>
             </div>
             <div class="menu">
                 <a href="#" id="firstMenuItem" class="menuItem active">All</a>
@@ -25,7 +25,6 @@
                 <a href="#" id="lastMenuItem" class="menuItem">Done</a>
             </div>
         </section>
-        <section layout:fragment="contents"></section>
     </main>
 </body>
 </html>

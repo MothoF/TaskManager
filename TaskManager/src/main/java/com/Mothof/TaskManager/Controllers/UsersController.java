@@ -44,14 +44,14 @@ public class UsersController {
         return "registrationForm";
     }
 
-    @PostMapping({"/","/login"})
-    public String login(@ModelAttribute("user") Users user){
-        if(!usersService.userIsAuthenticated(user)){
-            System.out.println("Errors found");
-            return "/login";
-        }
-        return "redirect:/home";
-    }
+//    @PostMapping({"/","/login"})
+//    public String login(@ModelAttribute("user") Users user){
+//        if(!usersService.userIsAuthenticated(user)){
+//            System.out.println("Errors found");
+//            return "/login";
+//        }
+//        return "redirect:/home";
+//    }
 
     @GetMapping("/changePassword")
     public String changeAccountPassword(Model model){
@@ -69,10 +69,16 @@ public class UsersController {
     }
 
     @GetMapping("/home")
-    @ResponseBody
-    public String homePage(Principal principalUser){
+    public String homePage(Principal principalUser, Model model){
+        if (principalUser == null){
+            return "redirect:/login";
+        }
         String username = principalUser.getName();
         Users user = usersRepo.findByUserName(username);
+        if (user == null){
+            throw new RuntimeException("User not found");
+        }
+        model.addAttribute("user",user);
         return "home";
     }
 
